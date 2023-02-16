@@ -1,17 +1,29 @@
 import { Link } from "react-router-dom";
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
 
 const Category = (props) => {
   const { name, description, thumb } = props;
   return (
-    <div className="max-w-xs h-full bg-slate-100 rounded-3xl p-4 mb-6 shadow-xl">
-      <img className="rounded-3xl mb-3.5" src={thumb} alt={name} />
-      <Link to={`category/${name}`}>
-        <h3 className="font-mono font-bold text-xl hover:text-blue-600">
-          {name}
-        </h3>
-      </Link>
-      <p className="italic text-justify">{description.substring(0, 150)}...</p>
-    </div>
+    <Card sx={{ maxWidth: 345, minHeight: 300 }}>
+      <CardActionArea>
+        <CardMedia component="img" height="140" image={thumb} alt={name} />
+        <CardContent>
+          <Link to={`category/${name}`}>
+            <Typography gutterBottom variant="h5" component="div">
+              {name}
+            </Typography>
+          </Link>
+          <Typography variant="body2" color="text.secondary">
+            {description.substring(0, 120)}...
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
   );
 };
 

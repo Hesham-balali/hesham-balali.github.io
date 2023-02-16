@@ -7,7 +7,8 @@ function IngredientItem(props) {
       <div>
         <img
           className="w-12 border-white	border-2 m-2 p-1 rounded-xl shadow-lg"
-          src={IngredientIcon}
+          src={`https://www.themealdb.com/images/ingredients/${name}.png`}
+          // src={IngredientIcon}
           alt=""
         />
       </div>

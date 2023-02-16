@@ -1,22 +1,24 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import MealCard from "./MealCard";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
 
 const MealList = (props) => {
   const { items } = props;
 
   return (
-    <main className="w-3/4 mx-auto">
-      <Header />
-      <section className="flex flex-wrap gap-4 justify-center">
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
         {items.map((item) => (
-          <div className="basis-2/12" key={item.id}>
+          <Grid item xs={3}>
             <MealCard id={item.id} name={item.name} thumb={item.thumb} />
-          </div>
+          </Grid>
         ))}
-      </section>
-      <Footer />
-    </main>
+      </Grid>
+    </Box>
   );
 };
 
