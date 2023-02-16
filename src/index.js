@@ -1,13 +1,47 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import reportWebVitals from "./reportWebVitals";
+import { loader as rootLoader } from "./views/Root";
+import { loader as mealByCategoryLoader } from "./views/MealByCategory";
+import { loader as mealByIdLoader } from "./views/MealById";
+import { loader as mealByIngredientLoader } from "./views/MealByIngredient";
+import Root from "./views/Root";
+import Error from "./views/Error";
+import MealByCategory from "./views/MealByCategory";
+import MealById from "./views/MealById";
+import ShowMeal from "./components/ShowMeal";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    loader: rootLoader,
+    errorElement: <Error />,
+  },
+  {
+    path: "category/:name",
+    loader: mealByCategoryLoader,
+    element: <MealByCategory />,
+  },
+  {
+    path: "meal/:id",
+    loader: mealByIdLoader,
+    element: <MealById />,
+    // element: <p>hi hesham</p>,
+  },
+  {
+    path: "/meal/ingredient/:name",
+    loader: mealByIngredientLoader,
+    // element: <p>hi hesham</p>,
+    element: <MealByCategory />,
+  },
+]);
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
