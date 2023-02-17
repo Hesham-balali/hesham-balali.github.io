@@ -23,12 +23,15 @@ const router = createBrowserRouter([
     element: <Root />,
     loader: rootLoader,
     errorElement: <Error />,
+    children: [
+      {
+        path: "categories/:name",
+        loader: mealByCategoryLoader,
+        element: <MealByCategory />,
+      },
+    ],
   },
-  {
-    path: "category/:name",
-    loader: mealByCategoryLoader,
-    element: <MealByCategory />,
-  },
+
   {
     path: "meal/:id",
     loader: mealByIdLoader,
