@@ -33,7 +33,8 @@ const MealCard = (props) => {
       <CardHeader
         avatar={
           <Avatar
-            src="/src/img/flags/Algerian.png"
+            alt={name}
+            src="../img/spiderman.jpg"
             aria-label="recipe"
             variant="rounded"
           ></Avatar>

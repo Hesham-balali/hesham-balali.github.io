@@ -13,7 +13,7 @@ const MealList = (props) => {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         {items.map((item) => (
-          <Grid item xs={3}>
+          <Grid item xs={3} key={item.id}>
             <MealCard id={item.id} name={item.name} thumb={item.thumb} />
           </Grid>
         ))}

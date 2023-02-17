@@ -7,7 +7,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import { loader as rootLoader } from "./views/Root";
+// import { loader as rootLoader } from "./views/Root";
 import { loader as mealByCategoryLoader } from "./views/MealByCategory";
 import { loader as mealByIdLoader } from "./views/MealById";
 import { loader as mealByIngredientLoader } from "./views/MealByIngredient";
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    loader: rootLoader,
+    // loader: rootLoader,
     errorElement: <Error />,
   },
   {
