@@ -1,7 +1,7 @@
 // import Header from "../components/Header";
 // import Footer from "../components/Footer";
 // import cats from "../data";
-import CategoryList from "../components/CategoryList";
+import CategoryList from "../components/CategoryListHomePage";
 import { getCategoryList } from "../api/meals";
 import { useLoaderData } from "react-router-dom";
 
@@ -32,6 +32,11 @@ import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
 import Spiderman from "../img/header2.jpg";
 import { Category } from "@mui/icons-material";
+
+export async function loader() {
+  const categories = await getCategoryList();
+  return { categories };
+}
 
 const drawerWidth = 240;
 
@@ -91,6 +96,7 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const { categories } = useLoaderData();
 
   return (
     <Box>
@@ -136,16 +142,18 @@ export default function PersistentDrawerLeft() {
           </DrawerHeader>
           <Divider />
           <List>
-            {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
+            {["Home", "Meals By Category", "Meals By Area", "About Dev"].map(
+              (text, index) => (
+                <ListItem key={text} disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                    </ListItemIcon>
+                    <ListItemText primary={text} />
+                  </ListItemButton>
+                </ListItem>
+              )
+            )}
           </List>
           <Divider />
           <List>
@@ -163,20 +171,39 @@ export default function PersistentDrawerLeft() {
         </Drawer>
         <Main open={open}>
           <DrawerHeader />
-          <Typography align="center" variant="h1" color="textPrimary">
+          <Typography
+            fontWeight="600"
+            align="center"
+            variant="h1"
+            color="textPrimary"
+          >
             Foodie!
           </Typography>
-          {/* <CategoryList items={categories} /> */}
+          <Divider />
+          <Typography
+            marginTop="50px"
+            marginBottom="30px"
+            align="center"
+            variant="h4"
+            color="textPrimary"
+          >
+            Categories
+          </Typography>
+          <CategoryList items={categories} />
+          <Typography
+            marginTop="50px"
+            marginBottom="30px"
+            align="center"
+            variant="h4"
+            color="textPrimary"
+          >
+            Random Meals
+          </Typography>
         </Main>
       </Box>
     </Box>
   );
 }
-
-// export async function loader() {
-//   const categories = await getCategoryList();
-//   return { categories };
-// }
 
 // function Root() {
 // const { categories } = useLoaderData();
