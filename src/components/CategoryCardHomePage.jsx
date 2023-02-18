@@ -10,32 +10,32 @@ const Category = (props) => {
   const { name, description, thumb } = props;
   const navigate = useNavigate();
   return (
-    <Card>
-      {/* <Card sx={{ maxWidth: 345, minHeight: 300 }}> */}
-      <CardActionArea>
-        <CardMedia component="img" height="140" image={thumb} alt={name} />
-        <CardContent>
-          <ListItemButton
-            onClick={() => {
-              navigate(`categories/${name}`);
-            }}
-          >
+    <ListItemButton
+      onClick={() => {
+        navigate(`categories/${name}`);
+      }}
+    >
+      <Card>
+        {/* <Card sx={{ maxWidth: 345, minHeight: 300 }}> */}
+        <CardActionArea>
+          <CardMedia component="img" height="140" image={thumb} alt={name} />
+          <CardContent>
             <Typography
               align="center"
               gutterBottom
-              variant="h5"
+              variant="h6"
               component="div"
             >
               {name}
             </Typography>
-          </ListItemButton>
 
-          {/* <Typography variant="body2" color="text.secondary">
+            {/* <Typography variant="body2" color="text.secondary">
             {description.substring(0, 120)}...
           </Typography> */}
-        </CardContent>
-      </CardActionArea>
-    </Card>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </ListItemButton>
   );
 };
 

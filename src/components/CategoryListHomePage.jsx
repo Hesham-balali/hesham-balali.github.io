@@ -16,7 +16,7 @@ const CategoryList = (props) => {
   const { items } = props;
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         {items.map((item) => (
           <Grid item xs={2}>
             <Category

@@ -26,6 +26,7 @@ import ListItemText from "@mui/material/ListItemText";
 import MailIcon from "@mui/icons-material/Mail";
 import InboxIcon from "@mui/icons-material/Inbox";
 import DraftsIcon from "@mui/icons-material/Drafts";
+import Search from "../components/Search";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -172,6 +173,7 @@ export default function PersistentDrawerLeft() {
             Foodie!
           </Typography>
           <Divider />
+          <Search />
           <Typography
             marginTop="50px"
             marginBottom="30px"
