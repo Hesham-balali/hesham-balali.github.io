@@ -10,39 +10,45 @@ import reportWebVitals from "./reportWebVitals";
 import { loader as rootLoader } from "./views/Root";
 import { loader as mealByCategoryLoader } from "./views/MealByCategory";
 import { loader as mealByIdLoader } from "./views/MealById";
+import { loader as category } from "./views/Category";
 import { loader as mealByIngredientLoader } from "./views/MealByIngredient";
 import Root from "./views/Root";
 import Error from "./views/Error";
 import MealByCategory from "./views/MealByCategory";
 import MealById from "./views/MealById";
 import ShowMeal from "./components/ShowMeal";
+import Category from "./views/Category";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    loader: rootLoader,
+    // loader: rootLoader,
     errorElement: <Error />,
     children: [
+      {
+        path: "categories",
+        loader: category,
+        element: <Category />,
+      },
       {
         path: "categories/:name",
         loader: mealByCategoryLoader,
         element: <MealByCategory />,
       },
+      {
+        path: "meal/:id",
+        loader: mealByIdLoader,
+        element: <MealById />,
+        // element: <p>hi hesham</p>,
+      },
+      {
+        path: "/meal/ingredient/:name",
+        loader: mealByIngredientLoader,
+        // element: <p>hi hesham</p>,
+        element: <MealByCategory />,
+      },
     ],
-  },
-
-  {
-    path: "meal/:id",
-    loader: mealByIdLoader,
-    element: <MealById />,
-    // element: <p>hi hesham</p>,
-  },
-  {
-    path: "/meal/ingredient/:name",
-    loader: mealByIngredientLoader,
-    // element: <p>hi hesham</p>,
-    element: <MealByCategory />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));

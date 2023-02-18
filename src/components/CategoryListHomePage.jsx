@@ -3,6 +3,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 
 // const Item = styled(Paper)(({ theme }) => ({
 //   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -16,6 +17,15 @@ const CategoryList = (props) => {
   const { items } = props;
   return (
     <Box sx={{ flexGrow: 1 }}>
+      <Typography
+        marginTop="50px"
+        marginBottom="30px"
+        align="center"
+        variant="h4"
+        color="textPrimary"
+      >
+        Categories
+      </Typography>
       <Grid container spacing={1}>
         {items.map((item) => (
           <Grid item xs={2}>

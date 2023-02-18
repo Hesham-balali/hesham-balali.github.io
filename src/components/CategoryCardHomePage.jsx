@@ -12,7 +12,7 @@ const Category = (props) => {
   return (
     <ListItemButton
       onClick={() => {
-        navigate(`categories/${name}`);
+        navigate(`${name}`);
       }}
     >
       <Card>

@@ -1,10 +1,6 @@
-// import Header from "../components/Header";
-// import Footer from "../components/Footer";
-// import cats from "../data";
 import CategoryList from "../components/CategoryListHomePage";
 import { getCategoryList } from "../api/meals";
 import { useLoaderData, Outlet } from "react-router-dom";
-
 import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -23,22 +19,14 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import InboxIcon from "@mui/icons-material/Inbox";
 import DraftsIcon from "@mui/icons-material/Drafts";
-import Search from "../components/Search";
 
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import { CardActionArea } from "@mui/material";
-import Spiderman from "../img/header2.jpg";
-import { Category } from "@mui/icons-material";
-
-export async function loader() {
-  const categories = await getCategoryList();
-  return { categories };
-}
+// export async function loader() {
+//   // const categories = await getCategoryList();
+//   // return { categories };
+//   return;
+// }
 
 const drawerWidth = 240;
 
@@ -98,7 +86,7 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const { categories } = useLoaderData();
+  // const { categories } = useLoaderData();
 
   return (
     <Box>
@@ -173,45 +161,10 @@ export default function PersistentDrawerLeft() {
             Foodie!
           </Typography>
           <Divider />
-          <Search />
-          <Typography
-            marginTop="50px"
-            marginBottom="30px"
-            align="center"
-            variant="h4"
-            color="textPrimary"
-          >
-            Categories
-          </Typography>
-          <CategoryList items={categories} />
-          <Typography
-            marginTop="50px"
-            marginBottom="30px"
-            align="center"
-            variant="h4"
-            color="textPrimary"
-          >
-            Random Meals
-          </Typography>
+
           <Outlet />
         </Main>
       </Box>
     </Box>
   );
 }
-
-// function Root() {
-// const { categories } = useLoaderData();
-//   return (
-//     <main className="w-3/4 mx-auto">
-//       <Header />
-//       <h2 className="text-4xl font-extrabold mb-8 text-center text-slate-800">
-//         Catergories
-//       </h2>
-//       <CategoryList items={categories} />
-//       <Footer />
-//     </main>
-//   );
-// }
-
-// export default Root;
