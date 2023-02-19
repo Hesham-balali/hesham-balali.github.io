@@ -25,7 +25,12 @@ const ShowMeal = (props) => {
           <Typography marginBottom="16px" variant="h3">
             {data.name}
           </Typography>
-          <Typography marginBottom="16px" align="justify" variant="h6">
+          <Typography
+            sx={{ fontStyle: "italic", fontWeight: 400 }}
+            marginBottom="16px"
+            align="justify"
+            variant="h6"
+          >
             {data.instruction}
           </Typography>
 
