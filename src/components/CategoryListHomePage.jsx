@@ -26,7 +26,7 @@ const CategoryList = (props) => {
       >
         Categories
       </Typography>
-      <Grid container spacing={1}>
+      <Grid container justifyContent="center" spacing={1}>
         {items.map((item) => (
           <Grid item xs={2}>
             <Category

@@ -1,6 +1,7 @@
 import IngredientItem from "./IngredientItem";
 import Grid from "@mui/material/Grid";
-import { Card } from "@mui/material";
+import { Card, Divider, Typography } from "@mui/material";
+import Chip from "@mui/material/Chip";
 
 function Ingredients(props) {
   const { items } = props;
@@ -10,7 +11,16 @@ function Ingredients(props) {
 
   return (
     <Card>
-      <Grid container spacing={2}>
+      <Divider variant="middle" />
+      <Typography
+        marginTop="50px"
+        marginBottom="50px"
+        align="center"
+        variant="h4"
+      >
+        Ingredients
+      </Typography>
+      <Grid container justifyContent="center" spacing={2}>
         {/* <ul className="flex flex-wrap"> */}
         {items.map((item, index) => (
           <Grid item xs={2}>

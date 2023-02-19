@@ -43,9 +43,8 @@ const router = createBrowserRouter([
         // element: <p>hi hesham</p>,
       },
       {
-        path: "/meal/ingredient/:name",
+        path: "ingredient/:name",
         loader: mealByIngredientLoader,
-        // element: <p>hi hesham</p>,
         element: <MealByCategory />,
       },
     ],

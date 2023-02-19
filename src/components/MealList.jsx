@@ -11,7 +11,7 @@ const MealList = (props) => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
+      <Grid container justifyContent="center" spacing={2}>
         {items.map((item) => (
           <Grid item xs={2} key={item.id}>
             <MealCard id={item.id} name={item.name} thumb={item.thumb} />

@@ -2,8 +2,15 @@ import axios from "axios";
 
 const formatMeal = (data) => {
   const meal = data.meals[0];
-  const { idMeal, strMeal, strInstructions, strTags, strMealThumb, strArea } =
-    meal;
+  const {
+    idMeal,
+    strMeal,
+    strInstructions,
+    strTags,
+    strMealThumb,
+    strArea,
+    strCategory,
+  } = meal;
   const ingredients = [];
   for (let i = 1; i < 21; i++) {
     const name = meal[`strIngredient${i}`];
@@ -23,6 +30,7 @@ const formatMeal = (data) => {
     tags: strTags ? strTags.split(",") : [],
     thumb: strMealThumb,
     area: strArea,
+    category: strCategory,
     ingredients,
   };
 };

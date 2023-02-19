@@ -20,12 +20,23 @@ const MealCard = (props) => {
       <Card>
         <CardHeader
           avatar={
-            <Avatar alt={name} aria-label="recipe" variant="rounded"></Avatar>
+            <Avatar
+              alt={name}
+              src="/static/images/avatar/1.jpg"
+              aria-label="recipe"
+              variant="rounded"
+            ></Avatar>
           }
-          title={name.substring(0, 25)}
+          title={name.substring(0, 20)}
           subheader={id}
         />
-        <CardMedia component="img" height="194" image={thumb} alt={name} />
+        <CardMedia
+          component="img"
+          // height="194"
+          width="300"
+          image={thumb}
+          alt={name}
+        />
       </Card>
     </ListItemButton>
   );

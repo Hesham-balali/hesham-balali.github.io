@@ -1,31 +1,49 @@
 import * as React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
 import Ingredient from "./Ingredients";
 import { Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { Card } from "@mui/material";
+import CardMedia from "@mui/material/CardMedia";
+import Avatar from "@mui/material/Avatar";
 
 const ShowMeal = (props) => {
-  // console.log("hi me");
-  // console.log(props);
   const data = props.items;
-  console.log("show meal data:::::");
-  console.log(props);
 
   return (
     <Card>
-      <Grid container spacing={2}>
+      <Grid marginTop="50px" padding="20px" container spacing={2}>
         <Grid item xs={5}>
-          {" "}
-          <img src={data.thumb} alt={data.name} />
+          <CardMedia
+            component="img"
+            // height="140"
+            // width="300"
+            image={data.thumb}
+            alt={data.name}
+          />
         </Grid>
         <Grid item xs={7}>
-          <Typography variant="h3">{data.name}</Typography>
-          <Typography variant="h6">{data.instruction}</Typography>
+          <Typography marginBottom="16px" variant="h3">
+            {data.name}
+          </Typography>
+          <Typography marginBottom="16px" align="justify" variant="h6">
+            {data.instruction}
+          </Typography>
+
+          <Grid container spacing={1}>
+            <Grid item xs={1}>
+              <Avatar
+                alt="Remy Sharp"
+                src={require(`../img/flags/${data.area}.png`)}
+                sx={{ width: 56, height: 56 }}
+                variant="rounded"
+              />
+            </Grid>
+            <Grid alignItems="left" alignContent="flex-start" item xs={11}>
+              <Typography marginTop="10px" variant="h6">
+                {data.area}
+              </Typography>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
       <Ingredient items={data.ingredients} />

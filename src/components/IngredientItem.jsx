@@ -1,28 +1,52 @@
-import IngredientIcon from "../img/item.png";
-import Avatar from "@mui/material/Avatar";
-import Stack from "@mui/material/Stack";
+import * as React from "react";
 import { Typography } from "@mui/material";
-import Grid from "@mui/material/Grid";
 import { Card } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import CardMedia from "@mui/material/CardMedia";
+import { CardActionArea, ListItemButton } from "@mui/material";
+import CardContent from "@mui/material/CardContent";
 
 function IngredientItem(props) {
   const { name, measure } = props;
+  const navigate = useNavigate();
   return (
-    <Card>
-      <Grid container spacing={1}>
-        <Grid item xs={5}>
-          <Avatar
+    // <Card>
+    //   <Grid container spacing={1}>
+    //     <Grid item xs={5}>
+    //       <Avatar
+    //         alt={name}
+    //         src={`https://www.themealdb.com/images/ingredients/${name}.png`}
+    //         variant="rounded"
+    //       />
+    //     </Grid>
+    //     <Grid item xs={7}>
+    //       <Typography variant="h6">{name}</Typography>
+    //       <Typography variant="subtitle1">{measure}</Typography>
+    //     </Grid>
+    //   </Grid>
+    // </Card>
+
+    <ListItemButton
+      onClick={() => {
+        navigate(`../ingredient/${name}`);
+      }}
+    >
+      <Card>
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            // height="140"
+            width="300"
+            image={`https://www.themealdb.com/images/ingredients/${name}.png`}
             alt={name}
-            src={`https://www.themealdb.com/images/ingredients/${name}.png`}
-            variant="rounded"
           />
-        </Grid>
-        <Grid item xs={7}>
-          <Typography variant="h6">{name}</Typography>
-          <Typography variant="subtitle1">{measure}</Typography>
-        </Grid>
-      </Grid>
-    </Card>
+          <CardContent>
+            <Typography variant="h6">{name}</Typography>
+            <Typography variant="subtitle1">{measure}</Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </ListItemButton>
 
     // {/* <li className="flex basis-1/2">
     //   <div>
