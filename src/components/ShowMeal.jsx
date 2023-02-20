@@ -25,19 +25,10 @@ const ShowMeal = (props) => {
           <Typography marginBottom="16px" variant="h3">
             {data.name}
           </Typography>
-          <Typography
-            sx={{ fontStyle: "italic", fontWeight: 400 }}
-            marginBottom="16px"
-            align="justify"
-            variant="h6"
-          >
-            {data.instruction}
-          </Typography>
-
           <Grid container spacing={1}>
             <Grid item xs={1}>
               <Avatar
-                alt="Remy Sharp"
+                alt={data.area}
                 src={require(`../img/flags/${data.area}.png`)}
                 sx={{ width: 56, height: 56 }}
                 variant="rounded"
@@ -49,6 +40,14 @@ const ShowMeal = (props) => {
               </Typography>
             </Grid>
           </Grid>
+          <Typography
+            sx={{ fontStyle: "italic", fontWeight: 400 }}
+            marginBottom="16px"
+            align="justify"
+            variant="h6"
+          >
+            {data.instruction}
+          </Typography>
         </Grid>
       </Grid>
       <Ingredient items={data.ingredients} />
