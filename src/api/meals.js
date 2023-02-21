@@ -52,7 +52,28 @@ export const getMealByCategory = async (category = "") => {
     return Promise.reject(e);
   }
 };
+
+export const searchMeal = async (name = "") => {
+  if (!name) {
+    return;
+  }
+  try {
+    const { data } = await axios.get(
+      `https://www.themealdb.com/api/json/v1/1/search.php`,
+      {
+        params: {
+          s: name,
+        },
+      }
+    );
+    return formatMealsSummery(data.meals);
+  } catch (e) {
+    return Promise.reject(e);
+  }
+};
+
 export default {
+  searchMeal,
   getCategoryList,
   getMealByCategory,
 };

@@ -1,5 +1,3 @@
-import Header from "./Header";
-import Footer from "./Footer";
 import MealCard from "./MealCard";
 import * as React from "react";
 import Box from "@mui/material/Box";
