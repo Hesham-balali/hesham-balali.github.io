@@ -72,8 +72,27 @@ export const searchMeal = async (name = "") => {
   }
 };
 
+export const getMealByArea = async (area = "") => {
+  if (!area) {
+    return;
+  }
+  try {
+    const { data } = await axios.get(
+      `https://www.themealdb.com/api/json/v1/1/filter.php`,
+      {
+        params: {
+          a: area,
+        },
+      }
+    );
+    return formatMealsSummery(data.meals);
+  } catch (e) {
+    return Promise.reject(e);
+  }
+};
 export default {
   searchMeal,
   getCategoryList,
   getMealByCategory,
+  getMealByArea,
 };

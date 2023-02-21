@@ -30,13 +30,7 @@ const MealCard = (props) => {
           title={name.substring(0, 20)}
           subheader={id}
         />
-        <CardMedia
-          component="img"
-          // height="194"
-          width="300"
-          image={thumb}
-          alt={name}
-        />
+        <CardMedia component="img" width="300" image={thumb} alt={name} />
       </Card>
     </ListItemButton>
   );

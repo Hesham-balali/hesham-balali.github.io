@@ -1,5 +1,3 @@
-import CategoryList from "../components/CategoryListHomePage";
-import { getCategoryList } from "../api/meals";
 import { useLoaderData, Outlet } from "react-router-dom";
 import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
@@ -19,14 +17,9 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/Inbox";
-import DraftsIcon from "@mui/icons-material/Drafts";
-
-// export async function loader() {
-//   // const categories = await getCategoryList();
-//   // return { categories };
-//   return;
-// }
+import { useNavigate } from "react-router-dom";
+import CategoryIcon from "@mui/icons-material/Category";
+import PersonIcon from "@mui/icons-material/Person";
 
 const drawerWidth = 240;
 
@@ -87,12 +80,12 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
   // const { categories } = useLoaderData();
-
+  const navigate = useNavigate();
   return (
     <Box>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
-        <AppBar color="inherit" position="fixed" open={open}>
+        <AppBar color="primary" position="fixed" open={open}>
           <Toolbar>
             <IconButton
               color="inherit"
@@ -133,19 +126,27 @@ export default function PersistentDrawerLeft() {
           <Divider />
           <List>
             <ListItem disablePadding>
-              <ListItemButton onClick="/hi">
+              <ListItemButton
+                onClick={() => {
+                  navigate(`/categories`);
+                }}
+              >
                 <ListItemIcon>
-                  <InboxIcon />
+                  <CategoryIcon />
                 </ListItemIcon>
-                <ListItemText primary="Inbox" />
+                <ListItemText primary="Categories" />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton>
+              <ListItemButton
+                onClick={() => {
+                  navigate(`/aboutdev`);
+                }}
+              >
                 <ListItemIcon>
-                  <DraftsIcon />
+                  <PersonIcon />
                 </ListItemIcon>
-                <ListItemText primary="Drafts" />
+                <ListItemText primary="About Dev" />
               </ListItemButton>
             </ListItem>
           </List>
@@ -157,6 +158,7 @@ export default function PersistentDrawerLeft() {
             align="center"
             variant="h1"
             color="textPrimary"
+            marginBottom="30px"
           >
             Foodie!
           </Typography>

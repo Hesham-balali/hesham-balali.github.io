@@ -7,20 +7,22 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import { loader as rootLoader } from "./views/Root";
+// import { loader as rootLoader } from "./views/Root";
 import { loader as mealByCategoryLoader } from "./views/MealByCategory";
 import { loader as mealByIdLoader } from "./views/MealById";
 import { loader as category } from "./views/Category";
 import { loader as mealByIngredientLoader } from "./views/MealByIngredient";
 import { loader as SearchMeal } from "./views/SearchMeal";
+import { loader as getMealByArea } from "./views/MealByArea";
 
 import Root from "./views/Root";
 import Error from "./views/Error";
 import MealByCategory from "./views/MealByCategory";
 import MealById from "./views/MealById";
-import ShowMeal from "./components/ShowMeal";
 import Category from "./views/Category";
 import SearchMealByName from "./views/SearchMeal";
+import MealByArea from "./views/MealByArea";
+import Aboutdev from "./views/AboutDev";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,7 @@ const router = createBrowserRouter([
         loader: category,
         element: <Category />,
       },
+
       {
         path: "categories/:name",
         loader: mealByCategoryLoader,
@@ -43,7 +46,6 @@ const router = createBrowserRouter([
         path: "meal/:id",
         loader: mealByIdLoader,
         element: <MealById />,
-        // element: <p>hi hesham</p>,
       },
       {
         path: "ingredient/:name",
@@ -54,6 +56,16 @@ const router = createBrowserRouter([
         path: "search/:name",
         loader: SearchMeal,
         element: <SearchMealByName />,
+      },
+      {
+        path: "area/:name",
+        loader: getMealByArea,
+        element: <MealByArea />,
+      },
+      {
+        path: "aboutdev",
+        // loader: category,
+        element: <Aboutdev />,
       },
     ],
   },

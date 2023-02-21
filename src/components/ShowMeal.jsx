@@ -5,13 +5,14 @@ import Grid from "@mui/material/Grid";
 import { Card } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import Avatar from "@mui/material/Avatar";
-
+import { useNavigate } from "react-router-dom";
+import { CardActionArea, ListItemButton } from "@mui/material";
 const ShowMeal = (props) => {
   const data = props.items;
-
+  const navigate = useNavigate();
   return (
     <Card>
-      <Grid marginTop="50px" padding="20px" container spacing={2}>
+      <Grid marginTop="30px" padding="20px" container spacing={2}>
         <Grid item xs={5}>
           <CardMedia
             component="img"
@@ -21,24 +22,29 @@ const ShowMeal = (props) => {
             alt={data.name}
           />
         </Grid>
+
         <Grid item xs={7}>
           <Typography marginBottom="16px" variant="h3">
             {data.name}
           </Typography>
           <Grid container spacing={1}>
-            <Grid item xs={1}>
-              <Avatar
-                alt={data.area}
-                src={require(`../img/flags/${data.area}.png`)}
-                sx={{ width: 56, height: 56 }}
-                variant="rounded"
-              />
-            </Grid>
-            <Grid alignItems="left" alignContent="flex-start" item xs={11}>
-              <Typography marginTop="10px" variant="h6">
-                {data.area}
-              </Typography>
-            </Grid>
+            <ListItemButton
+              onClick={() => {
+                navigate(`../area/${data.area}`);
+              }}
+            >
+              <Grid item xs={1}>
+                <Avatar
+                  alt={data.area}
+                  src={require(`../img/flags/${data.area}.png`)}
+                  sx={{ width: 56, height: 56 }}
+                  variant="rounded"
+                />
+              </Grid>
+              <Grid alignItems="left" alignContent="flex-start" item xs={11}>
+                <Typography variant="h6">{data.area}</Typography>
+              </Grid>
+            </ListItemButton>
           </Grid>
           <Typography
             sx={{ fontStyle: "italic", fontWeight: 400 }}
