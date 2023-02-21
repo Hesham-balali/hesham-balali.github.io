@@ -165,6 +165,15 @@ export default function PersistentDrawerLeft() {
           <Divider />
 
           <Outlet />
+          <Typography
+            fontWeight="400"
+            align="center"
+            variant="body1"
+            color="textPrimary"
+            marginTop="100px"
+          >
+            © Copyright - Coding Front 2023 / Just React - Foodie App By HeshaM
+          </Typography>
         </Main>
       </Box>
     </Box>
