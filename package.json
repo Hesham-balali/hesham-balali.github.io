@@ -1,7 +1,7 @@
 {
   "name": "router",
   "version": "0.1.0",
-  "homepage": "https://hesham-balali.github.io",
+  "homepage": "https://hesham-balali.github.io/foodie",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
